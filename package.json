@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "express": "3.x",
-    "express3-handlebars": "*"
+    "express3-handlebars": "*",
+    "fullcalendar": "^5.5.1"
   },
   "engines": {
     "node": "0.10.x"
