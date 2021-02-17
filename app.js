@@ -14,6 +14,9 @@ var add = require('./routes/add');
 //lab6
 var project = require('./routes/project');
 
+//A5
+var dateview = require('./routes/dateview');
+
 // Example route
 // var user = require('./routes/user');
 
@@ -46,6 +49,10 @@ app.get('/add', add.addFriend);
 
 //from lab6
 app.get('/project/:id', project.projectInfo);
+
+//A5
+app.get('/date/:thedate', dateview.view);
+
 
 // Example route
 // app.get('/users', user.list);

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>My HCI Friends</title>	
+	<title>{{date}}</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
@@ -34,37 +34,6 @@
       });
 
     </script>
-
-
-
-
-  <script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      selectable: true,
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      dateClick: function(info) {
-      	window.location.href = '/date/' + info.dateStr;
-        //alert('clicked ' + info.dateStr);
-      },
-      select: function(info) {
-        //alert('selected ' + info.startStr + ' to ' + info.endStr);
-      }
-    });
-
-    calendar.render();
-  });
-
-</script>
-
-
 
 </head>
 
@@ -169,7 +138,7 @@
 	    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
 	</form>
 </div>
-		<h3>Tasks & Notes</h3>
+		<h3>{{date}}</h3>
 		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
 		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
 		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
