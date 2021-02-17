@@ -124,9 +124,10 @@
 			<img id="photo" class='img-responsive' src="" />
 		</div>
 
-		<div class="jumbotron" style="background: #ebf2f9">
-				<form id="addFriendForm" role="form" method="get" action="/add">
-		<h3>Add a new note</h3>
+    {{#each datelist}}
+<div class="jumbotron" style="background: #ebf2f9">
+	<form id="addFriendForm" role="form" method="get" action="/date/{{date}}/add">
+		  <h3>Add a new note</h3>
 	    <div class="form-group">
 	      <label for="name">Task name:</label>
 	      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
@@ -139,20 +140,11 @@
 	</form>
 </div>
 		<h3>{{date}}</h3>
+    {{/each}}
+
 		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
 		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
 		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
-		{{#each projects}}
-		<div class="project" id="{{id}}">
-			<div class="thumbnail">
-				<a href="#">
-					<img src="images/{{image}}" alt="Lorem Pixel image" class="img">
-					<p>{{name}}</p>
-				</a>
-				<div class="details"></div>
-			</div>
-		</div>
-		{{/each}}
 
 
 
@@ -161,8 +153,7 @@
 		<!-- lab5 -->
 
 
-
-	{{#each friends}}
+	{{#each otherdatenotes}}
 	<div class="friends">
 	<img src="{{imageURL}}" class="img-responsive img-rounded">
 	<h3><a href="#">{{name}}</a></h3>

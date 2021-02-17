@@ -11,8 +11,7 @@ exports.view = function(req, res){
 	if (DateToShow === undefined) {
 		DateToShow = 'Please choose a date';
 	}
-
-  res.render('date', {
-  	'date': DateToShow,
-  });
+	data.datelist.pop();
+data.datelist.push({'date':DateToShow});
+  res.render('date', data);
 };

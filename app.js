@@ -44,7 +44,8 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
-app.get('/add', add.addFriend);
+app.get('/add', add.addNote);
+app.get('/date/:thedate/add', add.addNote);
 
 
 //from lab6
@@ -59,4 +60,18 @@ app.get('/date/:thedate', dateview.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+var hbs = handlebars.create({});
+
+hbs.handlebars.registerHelper("last", function(array) {
+  return array[array.length-1];
+});
+
+hbs.handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+
+hbs.handlebars.registerHelper('lookupProp', function (obj, key, prop) {
+   return obj[key] && obj[key][prop];
 });

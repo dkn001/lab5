@@ -1,33 +1,33 @@
 {
-	"friends": [
+	"notes": [
 		{
-			"name": "Doug Engelbart",
-			"description": "Has awesome pet mice",
+			"name": "COGS 120 A5",
+			"description": "Need to submit a single PDF file with the revised brief, link to development plan, wireframes, and link to screens (GitHub deployed app). Link to all requirements: https://ixd.ucsd.edu/home/w21/assignments/A5/ Due Thursday 2/18 on Gradescope",
 			"imageURL": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Douglas_Engelbart_in_2008.jpg/972px-Douglas_Engelbart_in_2008.jpg"			
 		},
 		{
-			"name": "Ivan Sutherland",
-			"description": "Great at sketching",
+			"name": "CSE PA5",
+			"description": "Programming assignment about 2D arrays and ArrayLists. Be sure to start it early! Professor’s OH are Thursdays at 8am TA’s OH are Thursdays at 11am",
 			"imageURL": "http://upload.wikimedia.org/wikipedia/commons/5/5c/Ivan_Sutherland_at_CHM.jpg"			
 		},
 		{
-			"name": "Lucy Suchman",
-			"description": "Loves Trukese navigators",
+			"name": "Design Planning Schedule",
+			"description": "Week 3: Contribute to inspiration board Week 4: Have initial design Logo first draft Potential fonts Color palette ideas Week 5: Determine final design Week 6: Determine shirt design based off of logo",
 			"imageURL": "http://upload.wikimedia.org/wikipedia/commons/d/df/Lucy_Suchman.jpeg"			
 		},
 		{
-			"name": "Vannevar Bush",
-			"description": "Has stellar associative memory",
+			"name": "Zoom 1-on-1’s",
+			"description": "Have goals and plans listed out (will be on a Google Doc, try to finish at least night before meeting). Probably ask about the plan for Spring Quarter’s events.",
 			"imageURL": "http://upload.wikimedia.org/wikipedia/commons/e/ea/Vannevar_Bush_portrait.jpg"			
 		},
 		{
-			"name": "Grace Hopper",
-			"description": "Only friend with a Navy ship named after them",
+			"name": "Material to Review",
+			"description": "HTML and CSS Javascript JQuery Handlebars Implementation using Node.js",
 			"imageURL": "http://amhistory.si.edu/ogmt/images/upload/women-mathematicians/AHB2012q06025.jpg"
 		},
 		{
-			"name": "Allen Newell",
-			"description": "Really into psychology",
+			"name": "Student Committee Meeting",
+			"description": "Make sure to have ready: Student college feedback about the lease Notes about the event Ideas for the lighting problem",
 			"imageURL": "http://uploads.edubilla.com/awards-winners/92/b4/allen-newell.jpg"
 		}
 	], "projects": [
@@ -63,5 +63,5 @@
 			"image": "lorempixel.city.2.jpeg",
 			"id": "project8"
 		}    	
-	]
+	] , "datelist" : [], "otherdatenotes": []
 }
