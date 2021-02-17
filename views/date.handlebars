@@ -148,7 +148,7 @@
       </div>
       <div class="modal-footer">
                 <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
+        <button id="deleteconfirm" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>
@@ -159,6 +159,15 @@
 
 	
 	</div>
+
+<script type="text/javascript">
+  $('.friends #deleteconfirm').click(function() { 
+    $(this).parents('.friends').hide();
+
+    return false;
+});    
+
+</script>
 
 </body>
 </html>
