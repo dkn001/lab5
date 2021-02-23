@@ -59,6 +59,7 @@ app.get('/date/:thedate', dateview.view);
 app.get('/login', login.addLogin);
 app.get('/logout', logout.removeLogin);
 app.get('/delete', remove.removeTask);
+app.get('/date/:thedate/delete', remove.removeTask);
 
 
 // Example route

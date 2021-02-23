@@ -20,8 +20,8 @@
 <link href="/css/bootstrap-theme.css" rel="stylesheet">
 <link href="/css/hci-friends.css" rel="stylesheet">
 
-    <link href='fullcalendar/main.css' rel='stylesheet' />
-    <script src='fullcalendar/main.js'></script>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'></script>
 
     <script>
 
@@ -32,6 +32,30 @@
         });
         calendar.render();
       });
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      selectable: true,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      dateClick: function(info) {
+        window.location.href = '/date/' + info.dateStr;
+        //alert('clicked ' + info.dateStr);
+      },
+      select: function(info) {
+        //alert('selected ' + info.startStr + ' to ' + info.endStr);
+      }
+    });
+
+    calendar.render();
+  });
 
     </script>
 
@@ -55,7 +79,7 @@
           <a class="nav-link" href="/">All reminders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Calendar</a>
+          <a class="nav-link" id="opencalendar">Calendar</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,10 +97,13 @@
 </nav>
 
 
+<div>
+    <div id='closebutton' style="position: absolute;visibility: hidden;z-index:10;">close</div>
+    <div style="position: absolute;visibility: hidden;z-index:10;   -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;background: #fff4f4" id='calendar'></div>
 
-
-    <div id='calendar'></div>
-
+</div>
 
 	<div class="container">
 
@@ -161,11 +188,52 @@
 	</div>
 
 <script type="text/javascript">
+
+
+document.getElementById("deleteconfirm").addEventListener("click", hidetask, false);
+document.getElementById("opencalendar").addEventListener("click", openCalendar, false);
+
+  function hidetask() { 
+  const Http = new XMLHttpRequest();
+const url=window.location.href.split('/add')[0]+'/delete';
+console.log(window.location.href.split('/add')[0]+'/delete');
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+
+if (window.location.href.indexOf("date") > -1 && window.location.href.indexOf("add?") > -1) {
+window.location.href = window.location.href.split('/add')[0];
+
+}else if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
+window.location.href = '/';
+} else {
+  location.reload();
+}
+    return false;
+};   
+
+
+  function openCalendar(){
+  $('#calendar').css({"visibility": "visible"});
+    $('#closebutton').css({"visibility": "visible"});
+
+  
+  return false;
+}
+
+
+
+
   $('.friends #deleteconfirm').click(function() { 
     $(this).parents('.friends').hide();
 
     return false;
 });    
+
+
 
 </script>
 
