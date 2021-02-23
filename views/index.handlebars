@@ -2,18 +2,18 @@
 
 <html>
 <head>
-	<title>My Note Taker</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>My Note Taker</title>  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/hci-friends.js"></script>
-	<!-- lab6 -->
-	{{> facebook}}
-	<script src="/js/facebook.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/hci-friends.js"></script>
+  <!-- lab6 -->
+  {{> facebook}}
+  <script src="/js/facebook.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -40,6 +40,14 @@
 
   <script>
 
+    $(document).ready(function(){
+
+/*! Fades in page on load */
+$('body').css('display', 'none');
+$('body').fadeIn(1200);
+
+});
+
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -51,7 +59,7 @@
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       dateClick: function(info) {
-      	window.location.href = '/date/' + info.dateStr;
+        window.location.href = '/date/' + info.dateStr;
         //alert('clicked ' + info.dateStr);
       },
       select: function(info) {
@@ -62,28 +70,27 @@
     calendar.render();
   });
 
+
 </script>
-
-
 
 </head>
 
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav style="visibility: hidden;" class="therest navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="https://cogs120team11.herokuapp.com/">Logo</a>
+    <a class="navbar-brand" href="/">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="https://cogs120team11.herokuapp.com/">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://cogs120team11.herokuapp.com/">All reminders</a>
+          <a class="nav-link" href="/">All reminders</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" onclick="openCalendar()">Calendar</a>
@@ -95,7 +102,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Change password</a></li>
-            <li><a class="dropdown-item" href="#">Log out</a></li>
+            <li><a class="dropdown-item" href="/logout">Log out</a></li>
           </ul>
         </li>
       </ul>
@@ -113,53 +120,76 @@
 
 </div>
 
-	<div class="container">
+  <div class="container">
 
-		<!-- lab6 -->
-		<div class="jumbotron">
-			<h1 id="name">Welcome!</h1>
-			<p>Please login to start note taking</p>
-			<p class="facebookLogin"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button></p>
-		</div>
+    <!-- lab6 -->
+    <div class="jumbotron loginform" style="background: #ebf2f9">
+      <h1 id="name">Welcome!</h1>
+      <p>Please login to start note taking</p>
 
-	<h1></h1>
+<div class="login-form">
+<div class="form-group">
+        <form id="loginForm" role="form" method="get" action="/login">
 
-		<div id="facebookPhoto" class="profile">
-			<img id="photo" class='img-responsive' src="" />
-		</div>
-
-		<div class="jumbotron" style="background: #ebf2f9">
-				<form id="addFriendForm" role="form" method="get" action="/add">
-		<h3>Add a new note</h3>
-	    <div class="form-group">
-	      <label for="name">Task name:</label>
-	      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
-	    </div>
-	    <div class="form-group">
-	      <label for="description">Description:</label>
-	      <input type="text" class="form-control" id="description" placeholder="Description" name="description">
-	    </div>
-	    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
-	</form>
+        <label for="name">Email or username:</label>
+        <input type="text" class="form-control" id="username" placeholder="Your username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="description">Password:</label>
+        <input type="text" class="form-control" id="password" placeholder="Your password" name="password">
+      </div>
+      <input style="background: deepskyblue;color:white;font-size: bold; margin-top:10px" type="submit" onclick="loginsuccess();sendLogin()" id="loginBtn" class="btn btn-default" value="Login"></input>
+    </form>
 </div>
-		<h3>Today Tasks & Notes</h3>
-		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
-		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
-		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
+<hr>
+      <p>Or login using Facebook</p>
+
+<div>
+
+      <p class="facebookLogin"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();loginsuccess();sendLogin()">
+</fb:login-button></p>
+
+</div>
+    </div>
+
+  <h1></h1>
+
+    <div id="facebookPhoto" class="profile">
+      <img id="photo" class='img-responsive' src="" />
+    </div>
+
+<div class="therest" style="visibility: hidden;">
+    <div class="jumbotron" style="background: #ebf2f9">
+        <form id="addFriendForm" role="form" method="get" action="/add">
+    <h3>Add a new note</h3>
+      <div class="form-group">
+        <label for="name">Task name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="description" placeholder="Description" name="description">
+      </div>
+      <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
+  </form>
+</div>
+    <h3>Today Tasks & Notes</h3>
+    <!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
+    <!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
+    <!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
 
 
-		<!-- lab5 -->
+    <!-- lab5 -->
 
 
   <div class="container">
   <div class="row">
 
-	{{#each notes}}
+  {{#each notes}}
 
-	<div class="friends col">
-	<img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
-	<h4 style="
+  <div class="friends col">
+  <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
+  <h4 style="
 height:60px;
   text-overflow: ellipsis;
 overflow:hidden;"><a href="#">{{name}}</a></h4>
@@ -167,7 +197,7 @@ overflow:hidden;"><a href="#">{{name}}</a></h4>
 height:100px;
   text-overflow: ellipsis;
 overflow:hidden;">
-	{{description}}
+  {{description}}
 </div>
     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
@@ -186,15 +216,39 @@ overflow:hidden;">
       </div>
       <div class="modal-footer">
                 <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
-        <button id="deleteconfirm" onclick="hidetask(this)" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
+        <button id="deleteconfirm" onclick="hidetask()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  function hidetask(e) { 
-    $(e).closest('div.friends').hide();
 
+  <hr>
+  </div>
+
+
+  {{/each}}
+
+     </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  function hidetask() { 
+  const Http = new XMLHttpRequest();
+const url='/delete';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+
+if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
+window.location.href = '/';
+} else {
+  location.reload();
+}
     return false;
 };    
 
@@ -206,16 +260,34 @@ function openCalendar(){
   return false;
 }
 
+function loginsuccess(){
+  $('.loginform').hide();
+
+    $('.therest').css({"visibility": "visible"});
+
+
+  return false;
+}
+
+function sendLogin(){
+  const Http = new XMLHttpRequest();
+const url='/login';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+}
+
+{{#each login}}
+{{#if login}}
+        window.onload = loginsuccess;
+{{/if}}
+{{/each}}
+
 </script>
-	<hr>
-	</div>
 
-
-	{{/each}}
-
-     </div>
-
-  </div>
 
 </body>
 </html>

@@ -10,6 +10,9 @@ var handlebars = require('express3-handlebars');
 
 var index = require('./routes/index');
 var add = require('./routes/add');
+var login = require('./routes/login');
+var logout = require('./routes/logout');
+var remove = require('./routes/remove');
 
 //lab6
 var project = require('./routes/project');
@@ -53,6 +56,9 @@ app.get('/project/:id', project.projectInfo);
 
 //A5
 app.get('/date/:thedate', dateview.view);
+app.get('/login', login.addLogin);
+app.get('/logout', logout.removeLogin);
+app.get('/delete', remove.removeTask);
 
 
 // Example route
