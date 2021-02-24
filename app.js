@@ -16,6 +16,7 @@ var remove = require('./routes/remove');
 
 //lab6
 var project = require('./routes/project');
+var trash = require('./routes/trash');
 
 //A5
 var dateview = require('./routes/dateview');
@@ -60,6 +61,7 @@ app.get('/login', login.addLogin);
 app.get('/logout', logout.removeLogin);
 app.get('/delete', remove.removeTask);
 app.get('/date/:thedate/delete', remove.removeTask);
+app.get('/trash', trash.view);
 
 
 // Example route

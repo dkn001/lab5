@@ -2,26 +2,26 @@
 
 <html>
 <head>
-	<title>{{date}}</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Trash</title>  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/hci-friends.js"></script>
-	<!-- lab6 -->
-	{{> facebook}}
-	<script src="/js/facebook.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/hci-friends.js"></script>
+  <!-- lab6 -->
+  {{> facebook}}
+  <script src="/js/facebook.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 <link href="/css/bootstrap-theme.css" rel="stylesheet">
 <link href="/css/hci-friends.css" rel="stylesheet">
 
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'></script>
+    <link href='fullcalendar/main.css' rel='stylesheet' />
+    <script src='fullcalendar/main.js'></script>
 
     <script>
 
@@ -33,7 +33,20 @@
         calendar.render();
       });
 
+    </script>
 
+
+
+
+  <script>
+
+    $(document).ready(function(){
+
+/*! Fades in page on load */
+$('body').css('display', 'none');
+$('body').fadeIn(1200);
+
+});
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -57,11 +70,13 @@
     calendar.render();
   });
 
-    </script>
+
+</script>
 
 </head>
 
 <body>
+
 
 
 <nav class="therest navbar navbar-expand-lg navbar-light bg-light">
@@ -107,41 +122,21 @@
 
 </div>
 
-	<div class="container">
+    <!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
+    <!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
+    <!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
 
 
-    {{#each datelist}}
-<div class="jumbotron" style="background: #ebf2f9">
-	<form id="addFriendForm" role="form" method="get" action="/date/{{date}}/add">
-		  <h3>Add a new note</h3>
-	    <div class="form-group">
-	      <label for="name">Task name:</label>
-	      <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
-	    </div>
-	    <div class="form-group">
-	      <label for="description">Description:</label>
-	      <input type="text" class="form-control" id="description" placeholder="Description" name="description" required>
-	    </div>
-	    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
-	</form>
-</div>
-		<h3>{{date}}</h3>
-    {{/each}}
-
-		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
-		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
-		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
+    <!-- lab5 -->
 
 
-
-
-
-		<!-- lab5 -->
   <div class="container">
+        <h3>Your deleted tasks are here</h3>
+<p>There are {{trash.length}} tasks in the recycle bin</p>
   <div class="row">
 
+  {{#each trash}}
 
-	{{#each otherdatenotes}}
   <div class="friends col">
   <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
   <h4 style="
@@ -154,10 +149,11 @@ height:120px;
 overflow:hidden;">
   {{description}}
 </div>
-  <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
-  Delete
+  Restore
 </button>
+<button type="button" style="color:royalblue" class="btn" data-bs-dismiss="modal">Delete permanently</button>
 
 <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -167,42 +163,31 @@ overflow:hidden;">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Do you want to delete this note?</p>
+        <p>Do you want to restore this note?</p>
       </div>
       <div class="modal-footer">
                 <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
-        <button id="deleteconfirm" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
+        <button id="deleteconfirm" onclick="hidetask()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Restore</button>
       </div>
     </div>
   </div>
 </div>
-	<hr>
-	</div>
-	{{/each}}
+
+  <hr>
+  </div>
+
+
+  {{/each}}
+
+     </div>
 
   </div>
 </div>
 
-  {{#each trash}}
-  <p>You just delete this task. Please visit recycle bin if you want to recover!</p>
-  <div class="friends">
-  <img style="width: 100px" src="{{imageURL}}" class="img-responsive img-rounded">
-  <h3><a href="#">{{name}}</a></h3>
-  <p>{{description}}</p>
-	 {{/each}}
-
-	</div>
-
 <script type="text/javascript">
-
-
-document.getElementById("deleteconfirm").addEventListener("click", hidetask, false);
-document.getElementById("opencalendar").addEventListener("click", openCalendar, false);
-
   function hidetask() { 
   const Http = new XMLHttpRequest();
-const url=window.location.href.split('/add')[0]+'/delete';
-console.log(window.location.href.split('/add')[0]+'/delete');
+const url='/delete';
 Http.open("GET", url);
 Http.send();
 
@@ -210,19 +195,15 @@ Http.onreadystatechange = (e) => {
   console.log(Http.responseText)
 }
 
-if (window.location.href.indexOf("date") > -1 && window.location.href.indexOf("add?") > -1) {
-window.location.href = window.location.href.split('/add')[0];
-
-}else if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
+if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
 window.location.href = '/';
 } else {
   location.reload();
 }
     return false;
-};   
+};    
 
-
-  function openCalendar(){
+function openCalendar(){
   $('#calendar').css({"visibility": "visible"});
     $('#closebutton').css({"visibility": "visible"});
 
@@ -230,18 +211,34 @@ window.location.href = '/';
   return false;
 }
 
+function loginsuccess(){
+  $('.loginform').hide();
+
+    $('.therest').css({"visibility": "visible"});
 
 
+  return false;
+}
 
-  $('.friends #deleteconfirm').click(function() { 
-    $(this).parents('.friends').hide();
+function sendLogin(){
+  const Http = new XMLHttpRequest();
+const url='/login';
+Http.open("GET", url);
+Http.send();
 
-    return false;
-});    
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+}
 
-
+{{#each login}}
+{{#if login}}
+        window.onload = loginsuccess;
+{{/if}}
+{{/each}}
 
 </script>
+
 
 </body>
 </html>
