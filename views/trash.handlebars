@@ -153,7 +153,7 @@ overflow:hidden;">
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
   Restore
 </button>
-<button type="button" style="color:royalblue" class="btn" data-bs-dismiss="modal">Delete permanently</button>
+<button type="button" onclick="permadelete()" style="color:royalblue" class="btn" data-bs-dismiss="modal">Delete permanently</button>
 
 <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -185,9 +185,29 @@ overflow:hidden;">
 </div>
 
 <script type="text/javascript">
+
+  
+  function permadelete() { 
+  const Http = new XMLHttpRequest();
+const url='/permadelete';
+Http.open("GET", url);
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+
+if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
+window.location.href = '/';
+} else {
+  location.reload();
+}
+    return false;
+};   
+  
   function hidetask() { 
   const Http = new XMLHttpRequest();
-const url='/delete';
+const url='/restore';
 Http.open("GET", url);
 Http.send();
 

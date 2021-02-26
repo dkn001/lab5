@@ -17,6 +17,8 @@ var remove = require('./routes/remove');
 //lab6
 var project = require('./routes/project');
 var trash = require('./routes/trash');
+var restore = require('./routes/restore');
+var permadelete = require('./routes/permadelete');
 
 //A5
 var dateview = require('./routes/dateview');
@@ -62,6 +64,8 @@ app.get('/logout', logout.removeLogin);
 app.get('/delete', remove.removeTask);
 app.get('/date/:thedate/delete', remove.removeTask);
 app.get('/trash', trash.view);
+app.get('/restore', restore.restoreTask);
+app.get('/permadelete', permadelete.permaDelete);
 
 
 // Example route
