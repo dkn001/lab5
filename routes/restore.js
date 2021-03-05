@@ -4,13 +4,15 @@ exports.restoreTask = function(request, response) { 
   // restore the note by adding it back
 
 
-  var task = data.trash[data.trash.length - 1];
+	var notename = request.params.notename;
+//console.log(notename)
+	var task = data.trash.find(o => o.name === notename);
+//console.log(task)
+	data.trash = data.trash.filter(function(el) { return el.name != notename; }); 
 
-  data.trash.pop();
 
   data.otherdatenotes.push(task);
   data.notes.push(task);
 
   response.render('trash',data);
-
  };
