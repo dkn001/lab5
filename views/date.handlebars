@@ -6,47 +6,47 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-	<script src="/js/bootstrap.js"></script>
-	<script src="/js/hci-friends.js"></script>
-	<!-- lab6 -->
-	{{> facebook}}
-	<script src="/js/facebook.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/hci-friends.js"></script>
+  <!-- lab6 -->
+  {{> facebook}}
+  <script src="/js/facebook.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-<link href="/css/bootstrap-theme.css" rel="stylesheet">
-<link href="/css/hci-friends.css" rel="stylesheet">
+  <link href="/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="/css/hci-friends.css" rel="stylesheet">
 
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css' rel='stylesheet' />
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'></script>
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js'></script>
 
-    <script>
+  <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth'
       });
+      calendar.render();
+    });
 
 
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      selectable: true,
-      headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      dateClick: function(info) {
-        window.location.href = '/date/' + info.dateStr;
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        selectable: true,
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        dateClick: function(info) {
+          window.location.href = '/date/' + info.dateStr;
         //alert('clicked ' + info.dateStr);
       },
       select: function(info) {
@@ -54,181 +54,188 @@
       }
     });
 
-    calendar.render();
-  });
+      calendar.render();
+    });
 
-    </script>
+  </script>
 
 </head>
 
 <body>
 
+  <!-- navigational menu -->
+  <nav class="therest navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
 
-<nav class="therest navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href='#' onclick="openCalendar()">Calendar</a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link" href="/trash">Recycle bin ({{trash.length}} item)</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            My Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Change password</a></li>
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href='#' onclick="openCalendar()">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/trash">Recycle bin ({{trash.length}} item)</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              My Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
-
-<div>
+  <!-- calendar -->
+  <div>
     <div id='closebutton' style="position: absolute;visibility: hidden;z-index:10;">close</div>
     <div style="position: absolute;visibility: hidden;z-index:10;   -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;background: #fff4f4" id='calendar'></div>
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;background: #fff4f4" id='calendar'></div>
 
-</div>
+  </div>
 
-	<div class="container">
-
-
-    {{#each datelist}}
-<div class="jumbotron" style="background: #ebf2f9">
-	<form id="addFriendForm" role="form" method="get" action="/date/{{date}}/add">
-		  <h3>Add a new note</h3>
-	    <div class="form-group">
-	      <label for="name">Task name:</label>
-	      <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
-	    </div>
-	    <div class="form-group">
-	      <label for="description">Description:</label>
-	      <input type="text" class="form-control" id="description" placeholder="Description" name="description" required>
-	    </div>
-	    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
-	</form>
-</div>
-		<h3>{{date}}</h3>
-    {{/each}}
-
-		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
-		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
-		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
-
-
-
-
-
-		<!-- lab5 -->
   <div class="container">
+
+    <!-- add note form -->
+    {{#each datelist}}
+    <div class="jumbotron" style="background: #ebf2f9">
+     <form id="addFriendForm" role="form" method="get" action="/date/{{date}}/add">
+      <h3>Add a new note</h3>
+      <div class="form-group">
+       <label for="name">Note name:</label>
+       <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
+     </div>
+     <div class="form-group">
+       <label for="description">Description:</label>
+       <input type="text" class="form-control" id="description" placeholder="Description" name="description" required>
+     </div>
+
+
+     <!-- take a picture -->
+     <div>            
+      <button style="margin-top:20px" type="button" onclick="initCamera();showcam()" id="camera-init" class="btn btn-default">I want to take a picture</button>
+    </div>
+    <div id="rsvp" style="display: none;">
+
+      <div class="row">
+        <div class="col">
+          <label for="">Your Photo</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div id="camera" class="profile" style="max-width: 250px;">
+            <video autoplay id="camera-video"></video>
+            <button type="button" id="camera-button" class="btn btn-primary">Take Photo</button>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <canvas id="camera-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+
+    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the note"></input>
+  </form>
+</div>
+<h3>{{date}}</h3>
+<p>You have {{otherdatenotes.length}} notes today!</p>
+
+
+{{/each}}
+
+<!-- listing the notes/tasks -->
+<div class="container">
   <div class="row">
 
 
-	{{#each otherdatenotes}}
-  <div class="friends col">
-  <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
-  <h4 style="
-height:60px;
-  text-overflow: ellipsis;
-overflow:hidden;">{{name}}</h4>
-  <div style="
-height:120px;
-  text-overflow: ellipsis;
-overflow:hidden;">
-  {{description}}
-</div>
+   {{#each otherdatenotes}}
+   <div class="friends col">
+    <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
+    <h4 style="
+    height:60px;
+    text-overflow: ellipsis;
+    overflow:hidden;">{{name}}</h4>
+    <div style="
+    height:120px;
+    text-overflow: ellipsis;
+    overflow:hidden;">
+    {{description}}
+  </div>
+
   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
-  Delete
-</button>
+  <button type="button" onclick="location.href='{{date}}/delete/{{name}}/'" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
+    Delete
+  </button>
 
-<div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Full screen modal</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Do you want to delete this note?</p>
-      </div>
-      <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
-        <button id="deleteconfirm" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
-      </div>
-    </div>
-  </div>
+  <hr>
 </div>
-	<hr>
-	</div>
-	{{/each}}
+{{/each}}
 
-  </div>
+</div>
 </div>
 
-  {{#each trash}}
-  <p>You just delete this task. Please visit recycle bin if you want to recover!</p>
-  <div class="friends">
+<!-- listing the deleted notes -->
+ <p>There are {{trash.length}} deleted note(s) in the recycle bin. Please visit recycle bin on the top menu to recover the deleted notes.</p>
+{{#each trash}}
+<div class="friends">
   <img style="width: 100px" src="{{imageURL}}" class="img-responsive img-rounded">
-  <h3><a href="#">{{name}}</a></h3>
+  <h5>{{name}}</h5>
   <p>{{description}}</p>
-	 {{/each}}
 
-	</div>
+</div>
+  {{/each}}
 
+<!-- JS to support delete function -->
 <script type="text/javascript">
 
 
-document.getElementById("deleteconfirm").addEventListener("click", hidetask, false);
-document.getElementById("opencalendar").addEventListener("click", openCalendar, false);
+  document.getElementById("deleteconfirm").addEventListener("click", hidetask, false);
+  document.getElementById("opencalendar").addEventListener("click", openCalendar, false);
 
   function hidetask() { 
-  const Http = new XMLHttpRequest();
-const url=window.location.href.split('/add')[0]+'/delete';
-console.log(window.location.href.split('/add')[0]+'/delete');
-Http.open("GET", url);
-Http.send();
+    const Http = new XMLHttpRequest();
+    const url=window.location.href.split('/add')[0]+'/delete';
+    console.log(window.location.href.split('/add')[0]+'/delete');
+    Http.open("GET", url);
+    Http.send();
 
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
-}
+    Http.onreadystatechange = (e) => {
+      console.log(Http.responseText)
+    }
 
-if (window.location.href.indexOf("date") > -1 && window.location.href.indexOf("add?") > -1) {
-window.location.href = window.location.href.split('/add')[0];
+    if (window.location.href.indexOf("date") > -1 && window.location.href.indexOf("add?") > -1) {
+      window.location.href = window.location.href.split('/add')[0];
 
-}else if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
-window.location.href = '/';
-} else {
-  location.reload();
-}
+    }else if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
+      window.location.href = '/';
+    } else {
+      location.reload();
+    }
     return false;
-};   
+  };   
 
 
   function openCalendar(){
-  $('#calendar').css({"visibility": "visible"});
+    $('#calendar').css({"visibility": "visible"});
     $('#closebutton').css({"visibility": "visible"});
 
-  
-  return false;
-}
+
+    return false;
+  }
 
 
 
@@ -237,7 +244,7 @@ window.location.href = '/';
     $(this).parents('.friends').hide();
 
     return false;
-});    
+  });    
 
 
 

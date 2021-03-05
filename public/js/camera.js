@@ -31,6 +31,13 @@ function capture(video, canvas, snapshotButton) {
         
         canvas.attr('width', width);
         canvas.attr('height', height);
+
+
+        var image = canvas[0].toDataURL("images/png").replace("images/png", "images/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+
+
+        window.location.href=image; // it will save locally
+
         ctx.drawImage(video[0], 0, 0, width, height);
     });
   };

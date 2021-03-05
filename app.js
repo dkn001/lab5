@@ -16,15 +16,14 @@ var remove = require('./routes/remove');
 
 //lab6
 var project = require('./routes/project');
-var trash = require('./routes/trash');
-var restore = require('./routes/restore');
-var permadelete = require('./routes/permadelete');
 
 //A5
 var dateview = require('./routes/dateview');
 
-// Example route
-// var user = require('./routes/user');
+//additional routes
+var trash = require('./routes/trash');
+var restore = require('./routes/restore');
+var permadelete = require('./routes/permadelete');
 
 var app = express();
 
@@ -57,19 +56,18 @@ app.get('/date/:thedate/add', add.addNote);
 //from lab6
 app.get('/project/:id', project.projectInfo);
 
-//A5
+//Routes to different pages
 app.get('/date/:thedate', dateview.view);
 app.get('/login', login.addLogin);
 app.get('/logout', logout.removeLogin);
-app.get('/delete', remove.removeTask);
-app.get('/date/:thedate/delete', remove.removeTask);
 app.get('/trash', trash.view);
-app.get('/restore', restore.restoreTask);
-app.get('/permadelete', permadelete.permaDelete);
+app.get('/permadelete/:notename', permadelete.permaDelete);
+app.get('/restore/:notename', restore.restoreTask);
 
+// delete the right note
+app.get('/date/:thedate/delete/:notename', remove.removeTask);
+app.get('/delete/:notename', remove.removeTask);
 
-// Example route
-// app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

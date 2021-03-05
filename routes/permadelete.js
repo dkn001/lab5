@@ -1,10 +1,11 @@
 var data = require("../data.json");
 
 exports.permaDelete = function(request, response) {    
-  // Your code goes here
+  // permanently delete the note
 
+	var notename = request.params.notename;
 
-  data.trash.pop();
+	data.trash = data.trash.filter(function(el) { return el.name != notename; }); 
 
   response.render('trash',data);
 

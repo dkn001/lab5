@@ -6,8 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
   <script src="/js/bootstrap.js"></script>
   <script src="/js/hci-friends.js"></script>
@@ -16,25 +16,25 @@
   <script src="/js/facebook.js"></script>
   <script src="/js/camera.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-<link href="/css/bootstrap-theme.css" rel="stylesheet">
-<link href="/css/hci-friends.css" rel="stylesheet">
+  <link href="/css/bootstrap-theme.css" rel="stylesheet">
+  <link href="/css/hci-friends.css" rel="stylesheet">
 
-    <link href='fullcalendar/main.css' rel='stylesheet' />
-    <script src='fullcalendar/main.js'></script>
+  <link href='fullcalendar/main.css' rel='stylesheet' />
+  <script src='fullcalendar/main.js'></script>
 
-    <script>
+  <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth'
       });
+      calendar.render();
+    });
 
-    </script>
+  </script>
 
 
 
@@ -43,24 +43,24 @@
 
     $(document).ready(function(){
 
-/*! Fades in page on load */
-$('body').css('display', 'none');
-$('body').fadeIn(1200);
+      /*! Fades in page on load */
+      $('body').css('display', 'none');
+      $('body').fadeIn(1200);
 
-});
+    });
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      selectable: true,
-      headerToolbar: {
-        left: 'prev,next',
-        center: 'title',
-        right: 'dayGridMonth,timeGridDay'
-      },
-      dateClick: function(info) {
-        window.location.href = '/date/' + info.dateStr;
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        selectable: true,
+        headerToolbar: {
+          left: 'prev,next',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        dateClick: function(info) {
+          window.location.href = '/date/' + info.dateStr;
         //alert('clicked ' + info.dateStr);
       },
       select: function(info) {
@@ -68,260 +68,237 @@ $('body').fadeIn(1200);
       }
     });
 
-    calendar.render();
-  });
+      calendar.render();
+    });
 
 
-</script>
+  </script>
 
 </head>
 
 <body>
 
+  <!-- navigational menu -->
+  <nav style="visibility: hidden;" class="therest navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
 
-<nav style="visibility: hidden;" class="therest navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Logo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href='#' onclick="openCalendar()">Calendar</a>
-        </li>
-                <li class="nav-item">
-          <a class="nav-link" href="/trash">Recycle bin ({{trash.length}} item)</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            My Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Change password</a></li>
-            <li><a class="dropdown-item" href="/logout">Log out</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href='#' onclick="openCalendar()">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/trash">Recycle bin ({{trash.length}} item)</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              My Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/logout">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
-
-<div>
+  <!-- calendar -->
+  <div>
     <div id='closebutton' style="position: absolute;visibility: hidden;z-index:10;">close</div>
     <div style="position: absolute;visibility: hidden;z-index:10;   -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;background: #fff4f4" id='calendar'></div>
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow:         3px 3px 5px 6px #ccc;background: #fff4f4" id='calendar'></div>
 
-</div>
+  </div>
 
+  <!-- login form -->
   <div class="container">
-
-    <!-- lab6 -->
     <div class="jumbotron loginform" style="background: #ebf2f9;position: fixed;">
       <h1 id="name">Welcome!</h1>
       <p>Please login to start note taking</p>
 
-<div class="login-form">
-<div class="form-group">
-        <form id="loginForm" role="form" method="get" action="/login">
+      <div class="login-form">
+        <div class="form-group">
+          <form id="loginForm" role="form" method="get" action="/login">
 
-        <label for="name">Email or username:</label>
-        <input type="text" class="form-control" id="username" placeholder="Your username" name="username">
+            <label for="name">Email or username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Your username" name="username">
+          </div>
+          <div class="form-group">
+            <label for="description">Password:</label>
+            <input type="text" class="form-control" id="password" placeholder="Your password" name="password">
+          </div>
+          <input style="background: deepskyblue;color:white;font-size: bold; margin-top:10px" type="submit" onclick="loginsuccess();sendLogin()" id="loginBtn" class="btn btn-default" value="Login"></input>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="description">Password:</label>
-        <input type="text" class="form-control" id="password" placeholder="Your password" name="password">
-      </div>
-      <input style="background: deepskyblue;color:white;font-size: bold; margin-top:10px" type="submit" onclick="loginsuccess();sendLogin()" id="loginBtn" class="btn btn-default" value="Login"></input>
-    </form>
-</div>
-<hr>
+      <hr>
       <p>Or login using Facebook</p>
 
-<div>
+      <div>
 
-      <p class="facebookLogin"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();loginsuccess();sendLogin()">
-</fb:login-button></p>
+        <p class="facebookLogin"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();loginsuccess();sendLogin()">
+        </fb:login-button></p>
 
-</div>
+      </div>
     </div>
 
 
-
-  <div class="row">
-    <div class="col-sm-2" >
-      <img id="photo" style="width: 90px" class='img-responsive' src="" />    </div>
-    <div class="col-sm-9">
-  <h1></h1>
-    </div>
-  </div>
-
-<div class="therest" style="visibility: hidden;">
-    <div class="jumbotron" style="background: #ebf2f9">
-        <form id="addFriendForm" role="form" method="get" action="/add">
-    <h3>Add a new note</h3>
-      <div class="form-group">
-        <label for="name">Task name:</label>
-        <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="description">Description:</label>
-        <input type="text" class="form-control" id="description" placeholder="Description" name="description" required>
-      </div>
-
-<div>            <button style="margin-top:20px" type="button" onclick="initCamera();showcam()" id="camera-init" class="btn btn-default">I want to take a picture</button></div>
-          <div id="rsvp" style="display: none;">
-      
-      <div class="row">
-        <div class="col">
-          <label for="">Your Photo</label>
+    <!-- Add note form -->
+    <div class="row" style="margin-bottom: 20px;">
+      <div class="col-sm-2" >
+        <img id="photo" style="width: 90px;border-radius: 50px;" class='img-responsive' src="" />    </div>
+        <div class="col-sm-9" style="  display: flex;
+  align-items: center;">
+          <h1></h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6">
-          <div id="camera" class="profile" style="max-width: 250px;">
-            <video autoplay id="camera-video"></video>
-            <button type="button" id="camera-button" class="btn btn-primary">Take Photo</button>
+
+      <div class="therest" style="visibility: hidden;">
+        <div class="jumbotron" style="background: #ebf2f9">
+          <form id="addFriendForm" role="form" method="get" action="/add">
+            <h3>Add a new note</h3>
+            <div class="form-group">
+              <label for="name">Note name:</label>
+              <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <input type="text" class="form-control" id="description" placeholder="Description" name="description" required>
+            </div>
+
+            <!-- take a picture -->
+            <div>            
+              <button style="margin-top:20px" type="button" onclick="initCamera();showcam()" id="camera-init" class="btn btn-default">I want to take a picture</button>
+            </div>
+            <div id="rsvp" style="display: none;">
+
+              <div class="row">
+                <div class="col">
+                  <label for="">Your Photo</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div id="camera" class="profile" style="max-width: 250px;">
+                    <video autoplay id="camera-video"></video>
+                    <button type="button" id="camera-button" class="btn btn-primary">Take Photo</button>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <canvas id="camera-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+
+
+            <input style="margin-top: 20px" type="submit" id="submitBtn" class="btn btn-primary" value="Add the note"></input>
+          </form>
+        </div>
+
+
+        <h3>Today Notes & Tasks</h3>
+
+        <p>You have {{notes.length}} notes today!</p>
+
+        <!-- listing the notes/tasks -->
+
+        <div class="container">
+          <div class="row">
+
+            {{#each notes}}
+
+            <div class="friends col">
+              <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
+              <h4 style="
+              height:60px;
+              text-overflow: ellipsis;
+              overflow:hidden;">{{name}}</h4>
+              <div style="
+              height:100px;
+              text-overflow: ellipsis;
+              overflow:hidden;">
+              {{description}}
+            </div>
+            <!-- Button trigger modal -->
+            <button style="margin-top: 20px" onclick="location.href='/delete/{{name}}'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
+              Delete
+            </button>
+
+            <hr>
           </div>
-        </div>
 
-        <div class="col-6">
-          <canvas id="camera-canvas"></canvas>
+
+          {{/each}}
+
+
         </div>
+        <!-- listing the deleted notes -->
+        <p>There are {{trash.length}} deleted note(s) in the recycle bin. Please visit recycle bin on the top menu to recover the deleted notes.</p>
+        {{#each trash}}
+        <div class="friends">
+          <img style="width: 100px" src="{{imageURL}}" class="img-responsive img-rounded">
+          <h5>{{name}}</h5>
+          <p>{{description}}</p>
+
+        </div>
+        {{/each}}
+
       </div>
     </div>
-      <input style="margin-top: 20px" type="submit" id="submitBtn" class="btn btn-primary" value="Add the note"></input>
-  </form>
-</div>
-    <h3>Today Tasks & Notes</h3>
 
-    <p>You have {{notes.length}} tasks today!</p>
-    <!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
-    <!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
-    <!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
+    <!-- JS to support login and delete function -->
 
+    <script type="text/javascript">
 
-    <!-- lab5 -->
+      function openCalendar(){
+        $('#calendar').css({"visibility": "visible"});
+        $('#closebutton').css({"visibility": "visible"});
 
 
-  <div class="container">
-  <div class="row">
+        return false;
+      }
 
-  {{#each notes}}
-
-  <div class="friends col">
-  <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
-  <h4 style="
-height:60px;
-  text-overflow: ellipsis;
-overflow:hidden;">{{name}}</h4>
-  <div style="
-height:100px;
-  text-overflow: ellipsis;
-overflow:hidden;">
-  {{description}}
-</div>
-    <!-- Button trigger modal -->
-<button style="margin-top: 20px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
-  Delete
-</button>
-
-<div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Confirm delete task</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Do you want to delete this note?</p>
-      </div>
-      <div class="modal-footer">
-                <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
-        <button id="deleteconfirm" onclick="hidetask()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <hr>
-  </div>
+      function loginsuccess(){
+        $('.loginform').hide();
+        $('.therest').css({"visibility": "visible"});
 
 
-  {{/each}}
+        return false;
+      }
 
-     </div>
+      function showcam(){
+        $("#rsvp").show();
+      }
 
-  </div>
-</div>
+      function sendLogin(){
+        const Http = new XMLHttpRequest();
+        const url='/login';
+        Http.open("GET", url);
+        Http.send();
 
-<script type="text/javascript">
-  function hidetask() { 
-  const Http = new XMLHttpRequest();
-const url='/delete';
-Http.open("GET", url);
-Http.send();
+        Http.onreadystatechange = (e) => {
+          console.log(Http.responseText)
+        }
+      }
 
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
-}
+      {{#each login}}
+      {{#if login}}
+      window.onload = loginsuccess;
+      {{/if}}
+      {{/each}}
 
-if (window.location.href.indexOf("add?") > -1 || window.location.href.indexOf("logout") > -1) {
-window.location.href = '/';
-} else {
-  location.reload();
-}
-    return false;
-};    
-
-function openCalendar(){
-  $('#calendar').css({"visibility": "visible"});
-    $('#closebutton').css({"visibility": "visible"});
-
-  
-  return false;
-}
-
-function loginsuccess(){
-  $('.loginform').hide();
-
-    $('.therest').css({"visibility": "visible"});
+    </script>
 
 
-  return false;
-}
-
-function showcam(){
-  $("#rsvp").show();
-}
-
-function sendLogin(){
-  const Http = new XMLHttpRequest();
-const url='/login';
-Http.open("GET", url);
-Http.send();
-
-Http.onreadystatechange = (e) => {
-  console.log(Http.responseText)
-}
-}
-
-{{#each login}}
-{{#if login}}
-        window.onload = loginsuccess;
-{{/if}}
-{{/each}}
-
-</script>
-
-
-</body>
-</html>
+  </body>
+  </html>

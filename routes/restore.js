@@ -1,15 +1,20 @@
 var data = require("../data.json");
 
 exports.restoreTask = function(request, response) {    
-  // Your code goes here
+  // restore the note by adding it back
 
 
-  var task = data.trash[data.trash.length - 1];
+	var notename = request.params.notename;
+//console.log(notename)
 
-  data.trash.pop();
+	var task = data.trash.find(o => o.name === notename);
+//console.log(task)
 
-data.otherdatenotes.push(task);
-data.notes.push(task);
+	data.trash = data.trash.filter(function(el) { return el.name != notename; }); 
+
+
+  data.otherdatenotes.push(task);
+  data.notes.push(task);
 
   response.render('trash',data);
 

@@ -1,7 +1,7 @@
 var data = require("../data.json");
 
 exports.removeLogin = function(request, response) {    
-	// Your code goes here
+	// check if the user is logout or not
 
 while(!(isEmpty(data.login))) {
 	data.login.pop();
