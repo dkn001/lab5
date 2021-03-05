@@ -6,7 +6,7 @@ exports.restoreTask = function(request, response) { 
 
 	var notename = request.params.notename;
 //console.log(notename)
-	//var task = data.trash.find(o => o.name === notename);
+	var task = data.trash.find(function(o){ if(o.name === notename){return o;}});
 //console.log(task)
 	data.trash = data.trash.filter(function(el) { return el.name != notename; }); 
 
