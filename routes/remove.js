@@ -9,7 +9,7 @@ exports.removeTask = function(request, response) {
 
 	//remove note from a specific date
 if (DateToShow) {
-	var deletedTask = data.otherdatenotes.find(function(o){ o.name === notename});
+	var deletedTask = data.otherdatenotes.find(function(o){ if(o.name === notename){return o;}});
 
 	data.otherdatenotes = data.otherdatenotes.filter(function(el) { return el.name != notename; }); 
 
@@ -20,7 +20,7 @@ if (DateToShow) {
 		response.render('date',data);
 
 } else{
-	//var deletedTask = data.notes.find(o => o.name === notename);
+	var deletedTask = data.notes.find(function(o){ if(o.name === notename){return o;}});
 
 	data.notes = data.notes.filter(function(el) { return el.name != notename; }); 
 
