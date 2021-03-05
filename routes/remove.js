@@ -1,12 +1,13 @@
 var data = require("../data.json");
 
-exports.removeTask = function(request, response) {    
-	// remove the note and put it to trash
+exports.removeTask = function(request, response) {
+
+
+		// remove the note and put it to trash
 	var DateToShow = request.params.thedate;
 	var notename = request.params.notename;
 
-
-//remove note from a specific date
+	//remove note from a specific date
 if (DateToShow) {
 	var deletedTask = data.otherdatenotes.find(o => o.name === notename);
 
@@ -15,10 +16,9 @@ if (DateToShow) {
 	if(!isEmpty(deletedTask)){
 		data.trash.push(deletedTask);
 	}
-
-	response.render('date',data);
-
 	//remove note from today
+		response.render('date',data);
+
 } else{
 	var deletedTask = data.notes.find(o => o.name === notename);
 
@@ -30,7 +30,8 @@ if (DateToShow) {
 
 	response.render('index',data);
 }
- };
+}
+
 
 function isEmpty(obj) {
   for(var prop in obj) {

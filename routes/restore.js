@@ -6,10 +6,8 @@ exports.restoreTask = function(request, response) { 
 
 	var notename = request.params.notename;
 //console.log(notename)
-
 	var task = data.trash.find(o => o.name === notename);
 //console.log(task)
-
 	data.trash = data.trash.filter(function(el) { return el.name != notename; }); 
 
 
@@ -17,5 +15,5 @@ exports.restoreTask = function(request, response) { 
   data.notes.push(task);
 
   response.render('trash',data);
-
+  
  };
