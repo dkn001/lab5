@@ -60,14 +60,13 @@ app.get('/project/:id', project.projectInfo);
 app.get('/date/:thedate', dateview.view);
 app.get('/login', login.addLogin);
 app.get('/logout', logout.removeLogin);
-app.get('/delete', remove.removeTask);
-app.get('/date/:thedate/delete', remove.removeTask);
 app.get('/trash', trash.view);
-app.get('/restore', restore.restoreTask);
-app.get('/permadelete', permadelete.permaDelete);
+app.get('/permadelete/:notename', permadelete.permaDelete);
+app.get('/restore/:notename', restore.restoreTask);
 
 // delete the right note
-app.get('/delete', remove.removeTask);
+app.get('/date/:thedate/delete/:notename', remove.removeTask);
+app.get('/delete/:notename', remove.removeTask);
 
 
 http.createServer(app).listen(app.get('port'), function(){
