@@ -20,7 +20,7 @@ if (DateToShow) {
 		response.render('date',data);
 
 } else{
-	var deletedTask = data.notes.find(function(o){ if(o.name === notename){return o;}});
+	//var deletedTask = data.notes.find(o => o.name === notename);
 
 	data.notes = data.notes.filter(function(el) { return el.name != notename; }); 
 
