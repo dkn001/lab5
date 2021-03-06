@@ -5,9 +5,8 @@ exports.restoreTask = function(request, response) { 
 
 
 	var notename = request.params.notename;
-//console.log(notename)
-	var task = data.trash.find(function(o){ if(o.name === notename){return o;}});
-//console.log(task)
+
+var task = getByValue(data.trash,notename)
 	data.trash = data.trash.filter(function(el) { return el.name != notename; }); 
 
 
@@ -17,3 +16,11 @@ exports.restoreTask = function(request, response) { 
   response.render('trash',data);
 
  };
+
+function getByValue(arr, value) {
+
+  for (var i=0, iLen=arr.length; i<iLen; i++) {
+
+    if (arr[i].name == value) return arr[i];
+  }
+}
