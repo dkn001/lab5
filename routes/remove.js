@@ -11,7 +11,7 @@ exports.removeTask = function(request, response) {
 if (DateToShow) {
 	//var deletedTask = data.otherdatenotes.find(function(o){ if(o.name === notename){return o;}});
 
-	var deletedTask = data.otherdatenotes[data.otherdatenotes.findIndex(function(o){ if(o.name === notename){return o;}})];
+var deletedTask = getByValue(data.otherdatenotes,notename);
 
 	data.otherdatenotes = data.otherdatenotes.filter(function(el) { return el.name != notename; }); 
 
@@ -23,7 +23,7 @@ if (DateToShow) {
 
 } else{
 	//var deletedTask = data.notes.find(function(o){ if(o.name === notename){return o;}});
-	var deletedTask = data.notes[data.notes.findIndex(function(o){ if(o.name === notename){return o;}})];
+var deletedTask = getByValue(data.notes,notename);
 
 	data.notes = data.notes.filter(function(el) { return el.name != notename; }); 
 
@@ -44,4 +44,12 @@ function isEmpty(obj) {
   }
 
   return JSON.stringify(obj) === JSON.stringify({});
+}
+
+function getByValue(arr, value) {
+
+  for (var i=0, iLen=arr.length; i<iLen; i++) {
+
+    if (arr[i].name == value) return arr[i];
+  }
 }
