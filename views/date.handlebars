@@ -14,6 +14,7 @@
   <!-- lab6 -->
   {{> facebook}}
   <script src="/js/facebook.js"></script>
+  <script src="/js/camera.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -244,23 +245,17 @@
 </script>
 
 <script type="text/javascript">
-
+      function showcam(){
+        $("#rsvp").show();
+      }
   var date = '{{#each datelist}}{{date}}{{/each}}';
    {{#each otherdatenotes}}
 
     document.getElementById("{{#replace " " "_"}}{{name}}{{/replace}}").onclick = function () {
 
-              const Http = new XMLHttpRequest();
-        const url= date + '/delete/{{name}}';
-        Http.open("GET", url);
-        Http.send();
+        window.location.href = "/date/" +date + '/delete/{{name}}';
 
-        Http.onreadystatechange = (e) => {
-          console.log(Http.responseText)
-        }
-
-        location.reload();
-
+    return false;
     };
        {{/each}}
 
