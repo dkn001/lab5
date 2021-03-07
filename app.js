@@ -86,3 +86,9 @@ hbs.handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 hbs.handlebars.registerHelper('lookupProp', function (obj, key, prop) {
    return obj[key] && obj[key][prop];
 });
+
+
+hbs.handlebars.registerHelper('replace', function( find, replace, options) {
+    var string = options.fn(this);
+    return string.split(" ").join("_");;
+});

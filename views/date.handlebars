@@ -176,11 +176,13 @@
     {{description}}
   </div>
 
+  <script type="text/javascript">
+    console.log(document.URL);
+  </script>
   <!-- Button trigger modal -->
-  <button type="button" onclick="location.href='{{date}}/delete/{{name}}/'" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
+  <button type="button" id='{{#replace " " "_"}}{{name}}{{/replace}}' class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
     Delete
   </button>
-
   <hr>
 </div>
 {{/each}}
@@ -203,13 +205,10 @@
 <script type="text/javascript">
 
 
-  document.getElementById("deleteconfirm").addEventListener("click", hidetask, false);
-  document.getElementById("opencalendar").addEventListener("click", openCalendar, false);
-
   function hidetask() { 
     const Http = new XMLHttpRequest();
     const url=window.location.href.split('/add')[0]+'/delete';
-    console.log(window.location.href.split('/add')[0]+'/delete');
+
     Http.open("GET", url);
     Http.send();
 
@@ -238,17 +237,35 @@
   }
 
 
-
-
-  $('.friends #deleteconfirm').click(function() { 
-    $(this).parents('.friends').hide();
-
-    return false;
-  });    
+  
 
 
 
 </script>
+
+<script type="text/javascript">
+
+  var date = '{{#each datelist}}{{date}}{{/each}}';
+   {{#each otherdatenotes}}
+
+    document.getElementById("{{#replace " " "_"}}{{name}}{{/replace}}").onclick = function () {
+
+              const Http = new XMLHttpRequest();
+        const url= date + '/delete/{{name}}';
+        Http.open("GET", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+          console.log(Http.responseText)
+        }
+
+        location.reload();
+
+    };
+       {{/each}}
+
+</script>
+
 
 </body>
 </html>
