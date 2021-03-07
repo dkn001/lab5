@@ -15,7 +15,7 @@ var deletedTask = getByValue(data.otherdatenotes,notename);
 
 	data.otherdatenotes = data.otherdatenotes.filter(function(el) { return el.name != notename; }); 
 
-	if(!isEmpty(deletedTask)){
+	if('name' in deletedTask){
 		data.trash.push(deletedTask);
 	}
 	//remove note from today
@@ -27,7 +27,7 @@ var deletedTask = getByValue(data.notes,notename);
 
 	data.notes = data.notes.filter(function(el) { return el.name != notename; }); 
 
-	if(!isEmpty(deletedTask)){
+	if('name' in deletedTask){
 		data.trash.push(deletedTask);
 	}
 
