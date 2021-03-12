@@ -97,7 +97,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/trash">Recycle bin ({{trash.length}} item)</a>
           </li>
-          <li class="nav-item">
+                    <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/howtouse">How to use?</a>
           </li>
           <li class="nav-item dropdown">
@@ -125,38 +125,16 @@
 
 
   <!-- listing the deleted notes -->
-  <div class="container" style="margin-top: 70px;">
-    <h3>Your deleted notes are here</h3>
-    <p>There are {{trash.length}} notes in the recycle bin</p>
-    <div class="row">
+  <div class="container" style="margin-top:80px">
+    <h3>Using Quick Notetaker is easy</h3>
+        <h4>Step 1: Login</h4>
 
-      {{#each trash}}
+<img src="/images/guide1.png" class="img-fluid" alt="Responsive image">
+        <h4>Step 2: Add a note on any given date</h4>
 
-      <div class="friends col">
-        <img style="max-width: 250px" src="{{imageURL}}" class="img-responsive img-rounded">
-        <h4 style="
-        height:60px;
-        text-overflow: ellipsis;
-        overflow:hidden;">{{name}}</h4>
-        <div style="
-        height:120px;
-        text-overflow: ellipsis;
-        overflow:hidden;">
-        {{description}}
-      </div>
-      <!-- Button trigger modal -->
-      <button type="button" onclick="location.href='/restore/{{name}}'" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">
-        Restore
-      </button>
-      <button type="button" onclick="location.href='/permadelete/{{name}}'" style="color:royalblue" class="btn" data-bs-dismiss="modal">Delete permanently</button>
-
-      <hr>
-    </div>
-
-
-    {{/each}}
-
-  </div>
+<img src="/images/guide2.png" class="img-fluid" alt="Responsive image">
+<h4>Step 3: Add a note on any given date</h4>
+<img src="/images/guide3.png" class="img-fluid" alt="Responsive image">
 
 </div>
 </div>

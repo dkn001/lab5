@@ -13,6 +13,7 @@ var add = require('./routes/add');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var remove = require('./routes/remove');
+var howtouse = require('./routes/howtouse');
 
 //lab6
 var project = require('./routes/project');
@@ -63,6 +64,7 @@ app.get('/logout', logout.removeLogin);
 app.get('/trash', trash.view);
 app.get('/permadelete/:notename', permadelete.permaDelete);
 app.get('/restore/:notename', restore.restoreTask);
+app.get('/howtouse', howtouse.view);
 
 // delete the right note
 app.get('/date/:thedate/delete/:notename', remove.removeTask);
